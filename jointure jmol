@@ -1,0 +1,44 @@
+
+<?php
+
+SELECT wizard.firstname, wizard.lastname, player.role, team.name
+FROM player 
+JOIN wizard
+ON wizard.id = player.wizard_INT
+JOIN team	
+ON team.id = player.team_id;
+
+SELECT *
+FROM wizard
+ORDER BY lastname;
+
+SELECT *
+FROM wizard
+ORDER BY firstname;
+
+SELECT wizard.firstname, wizard.lastname, player.role
+FROM wizard 
+JOIN player
+ON player.id = player.wizard_INT
+
+SELECT wizard.firstname, wizard.lastname, player.role
+FROM player 
+JOIN wizard
+ON wizard.id = player.wizard_INT
+WHERE player.role = "seeker"
+ORDER BY firstname;
+
+SELECT wizard.firstname, wizard.lastname, player.role
+FROM player 
+JOIN wizard
+ON wizard.id = player.wizard_INT
+WHERE player.role = "seeker"
+ORDER BY lastname;
+
+SELECT wizard.firstname, wizard.lastname, player.role
+FROM wizard 
+LEFT JOIN player
+ON wizard.id = player.wizard_INT
+HAVING player.role IS NULL
+
+?>
